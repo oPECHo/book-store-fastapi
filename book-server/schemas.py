@@ -3,9 +3,9 @@ from pydantic import BaseModel
 
 class BlogBase(BaseModel):
     title: str
-    price: int
+    price: float
     stockAmount: int
-    category: int
+    categoryId: int
 
 class Book(BlogBase):
     class Config():
@@ -19,15 +19,17 @@ class Category(CategoryBase):
         orm_mode = True
 
 class ShowCategory(BaseModel):
-    title: str
-    book : List[Book] = []
+    id : int
+    title : str
     class Config():
         orm_mode = True
 
 class ShowBook(BaseModel):
+    id: int
     title: str
-    price: int
+    price: float
     stockAmount: int
+    categoryId: int
 
     class Config():
         orm_mode = True
