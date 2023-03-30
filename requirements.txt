@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+
+#1. python3 -m venv book-env (create book-env)
+#2. pip3 install -r requirements.txt (use command install)
+#3. source book-env/bin/activities
+#4. uvicorn book.main:app --reload (run project)
+
+#* http://127.0.0.1:8000/docs
+#* http://127.0.0.1:8000/redoc
