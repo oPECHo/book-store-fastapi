@@ -11,7 +11,7 @@ router = APIRouter(
 
 get_db = database.get_db
 
-@router.get('/',response_model=List[schemas.Category])
+@router.get('/',response_model=List[schemas.ShowCategory])
 def all(db : Session = Depends(get_db)):
     return category.get_all(db)
 
