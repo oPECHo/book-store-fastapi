@@ -7,7 +7,7 @@ def get_all(db: Session):
     return books
 
 def create(request,db: Session):
-    new_book = models.Book(title=request.title, price=request.price, stockAmount=request.stockAmount, category=request.category)
+    new_book = models.Book(title=request.title, price=request.price, stockAmount=request.stockAmount, categoryId=request.categoryId)
     db.add(new_book)
     db.commit()
     db.refresh(new_book)
