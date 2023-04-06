@@ -19,8 +19,8 @@ class Category(CategoryBase):
         orm_mode = True
 
 class ShowCategory(BaseModel):
-    id : int
-    title : str
+    id : Optional[int]
+    title : Optional[str]
     class Config():
         orm_mode = True
 
@@ -29,7 +29,6 @@ class ShowBook(BaseModel):
     title: str
     price: float
     stockAmount: int
-    categoryId: int
-
+    category: Optional[ShowCategory]
     class Config():
         orm_mode = True

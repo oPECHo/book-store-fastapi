@@ -20,5 +20,5 @@ app.add_middleware(
 
 models.Base.metadata.create_all(engine)
 
-app.include_router(book.router)
-app.include_router(category.router)
+app.include_router(book.router, prefix='/api')
+app.include_router(category.router, prefix='/api')

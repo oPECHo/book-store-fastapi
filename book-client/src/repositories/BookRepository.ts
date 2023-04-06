@@ -11,9 +11,14 @@ interface BookFilter {
 export class BookRepository implements IRepository<Book> {
     urlPrefix = config.remoteRepositoryUrlPrefix
 
-    async getAll(filter: BookFilter): Promise<Book[] | null>{
-      const params = {categoryId: filter.categoryId}
-      const result = await axios.get<Book[]>(`${this.urlPrefix}/book/`, { params })
+    async getAll(filter: BookFilter): Promise<Book[] | null> {
+      const params = { categoryId: filter.categoryId };
+      let result;    
+      if (params.categoryId) {
+        result = await axios.get<Book[]>(`${this.urlPrefix}/book/`, { params });
+      } else {
+        result = await axios.get<Book[]>(`${this.urlPrefix}/book/`);
+      }    
       return result.data
     }
     async get(id: number|string): Promise<Book | null>{

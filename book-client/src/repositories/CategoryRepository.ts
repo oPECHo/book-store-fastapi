@@ -7,7 +7,7 @@ import axios from 'axios'
 export class CategoryRepository implements IRepository<category> {
     urlPrefix = config.remoteRepositoryUrlPrefix
     async getAll(): Promise<category[] | null> {
-        const result = await axios.get<category[]>(`${this.urlPrefix}/category`)
+        const result = await axios.get<category[]>(`${this.urlPrefix}/category/`)
         return result.data
     }
     async get(id: string | number): Promise<category | null> {
